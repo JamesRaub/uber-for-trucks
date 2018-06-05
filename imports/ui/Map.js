@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMapGL from 'react-map-gl';
-
+import {defaultMapStyle} from '../client/styles/js/map-style.js';
+import {MapboxDirections} from 'mapbox-gl-directions'
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiamFtZXNyYXViIiwiYSI6ImNqaGFieXl1cTA4Y3YzNm56ejRmMmo1MHQifQ.x-D6SipJooL5c7KYjgCD4w';
 const iSpace = {
   latitude: 5.5697811999999995,
@@ -10,6 +11,8 @@ const iSpace = {
 export default class Map extends React.Component {
 
     state = {
+    container: 'map',
+     style: 'mapbox://styles/mapbox/streets-v8',
      viewport: {
        width: 400,
        height: 400,
@@ -28,6 +31,7 @@ export default class Map extends React.Component {
          mapboxApiAccessToken={MAPBOX_TOKEN}
         onViewportChange={(viewport) => this.setState({viewport})}
       />
+      
     );
   }
 }
